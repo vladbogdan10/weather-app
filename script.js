@@ -6,7 +6,7 @@ $(window).on("load", function () {
             var lon = position.coords.longitude;
             $.getJSON("https://api.darksky.net/forecast/8607de7f2b8c833a13d61d9969bd96ee/"+lat+","+lon+"?callback=?", getForecast);
         });
-      
+        
     } else {
         alert("Browser doesn't support geolocation!");
     }
