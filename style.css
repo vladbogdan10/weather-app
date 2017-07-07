@@ -13,9 +13,8 @@
 
 #location {
     font-size: 35px;
-    font-weight: 600;
-    font-family: 'Dosis', sans-serif;
-    letter-spacing: 1px;
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
 }
 
 #date {
@@ -96,16 +95,14 @@ input:checked + .slider:before {
 }
 
 .main-info {
-    margin-left: 2px;
-    font-family: sans-serif;
+    font-weight: 600;
 }
 
 #main-details {
     font-size: 18px;
     text-align: center;
-    font-family: 'Dosis', sans-serif;
-    padding-top: 50px;
-    font-weight: 600;
+    font-family: 'Roboto', sans-serif;
+    padding-top: 55px;
 }
 
 #main-details img {

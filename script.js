@@ -5,6 +5,9 @@ $(window).on("load", function () {
             var lat = position.coords.latitude;
             var lon = position.coords.longitude;
             $.getJSON("https://api.darksky.net/forecast/8607de7f2b8c833a13d61d9969bd96ee/"+lat+","+lon+"?callback=?", getForecast);
+            $.getJSON("https://maps.googleapis.com/maps/api/geocode/json?latlng="+lat+","+lon+"&key=AIzaSyCvjcQzheZD4OKM2DPTBOoyNrtkqqp4D1o", function(googleLocation) {
+                $("#location").text(googleLocation.results[3].formatted_address);
+            });
         });
         
     } else {
@@ -32,12 +35,11 @@ var now = new Date();
 var getForecast = function(data) {
     console.log(data);
     $("#date").text(date);
-    $("#location").html(data.timezone);
     $("#summary").html(data.currently.summary);
     $("#degree").html(tempConvert(data.currently.temperature));
     $("#real-feel").text(tempConvert(data.currently.apparentTemperature));
     $("#humidity").html(Math.round(data.currently.humidity * 100));
-    $("#precip").html(data.currently.precipProbability * 1000);
+    $("#precip").html(Math.round(data.daily.data[0].precipProbability * 100));
     $("#wind-speed").html(Math.round(data.currently.windSpeed * 1.6));
  
 // Toggle button between CELSIUS and FAHRENHEIT.
@@ -148,6 +150,9 @@ function unixTimeToDay() {
     var dayName = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
     return dayName[date.getDay()];
 };
+
+
+
 
 
 
