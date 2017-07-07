@@ -15,10 +15,7 @@
     font-size: 35px;
     font-weight: 600;
     font-family: 'Dosis', sans-serif;
-<<<<<<< HEAD
-=======
     letter-spacing: 1px;
->>>>>>> origin/master
 }
 
 #date {
@@ -99,12 +96,9 @@ input:checked + .slider:before {
 }
 
 .main-info {
-<<<<<<< HEAD
     margin-left: 4px;
     font-family: sans-serif;
     font-weight: 400;
-=======
->>>>>>> origin/master
     margin-left: 2px;
     font-family: sans-serif;
 }
@@ -113,10 +107,7 @@ input:checked + .slider:before {
     font-size: 18px;
     text-align: center;
     font-family: 'Dosis', sans-serif;
-<<<<<<< HEAD
     padding-top: 55px;
-=======
->>>>>>> origin/master
     padding-top: 50px;
     font-weight: 600;
 }
