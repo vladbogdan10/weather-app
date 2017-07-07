@@ -6,7 +6,7 @@ $(window).on("load", function () {
             var lon = position.coords.longitude;
             $.getJSON("https://api.darksky.net/forecast/8607de7f2b8c833a13d61d9969bd96ee/"+lat+","+lon+"?callback=?", getForecast);
             $.getJSON("https://maps.googleapis.com/maps/api/geocode/json?latlng="+lat+","+lon+"&key=AIzaSyCvjcQzheZD4OKM2DPTBOoyNrtkqqp4D1o", function(googleLocation) {
-                $("#location").text(googleLocation.results[3].formatted_address);
+                $("#location").text(googleLocation.results[2].formatted_address);
             });
         });
         
