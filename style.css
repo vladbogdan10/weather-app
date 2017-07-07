@@ -13,8 +13,8 @@
 
 #location {
     font-size: 35px;
-    font-weight: 500;
-    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    font-family: 'Dosis', sans-serif;
 }
 
 #date {
@@ -95,37 +95,24 @@ input:checked + .slider:before {
 }
 
 .main-info {
-    font-weight: 600;
+    margin-left: 4px;
+    font-family: sans-serif;
+    font-weight: 400;
+    margin-left: 2px;
+    font-family: sans-serif;
 }
 
 #main-details {
     font-size: 18px;
     text-align: center;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Dosis', sans-serif;
     padding-top: 55px;
+    padding-top: 50px;
+    font-weight: 600;
 }
 
 #main-details img {
     width: 20px;
-}
-
-@media only screen and (max-width: 768px) {
-    #location {
-        font-size: 25px;
-    }
-    
-    #main-icon {
-        width: 110px;
-        padding-top: 30px;
-    }
-    
-    .main-deg {
-        font-size: 30px;
-    }
-    
-    #main-details {
-        padding-top: 30px;
-    }
 }
 
 h3 {
@@ -141,7 +128,7 @@ h3 {
 }
 
 #hourly-icon-0, #hourly-icon-1, #hourly-icon-2, #hourly-icon-3, #hourly-icon-4, #hourly-icon-5 {
-    width: 25px;
+    width: 32px;
 }
 
 .hourly-degree {
@@ -175,7 +162,7 @@ h3 {
 }
 
 #daily-icon-0, #daily-icon-1, #daily-icon-2, #daily-icon-3, #daily-icon-4, #daily-icon-5 {
-    width: 25px;
+    width: 32px;
 }
 
 footer {
@@ -194,6 +181,38 @@ footer a:hover {
 
 #darksky img{
     width: 180px;
+}
+
+@media only screen and (max-width: 768px) {
+    #location {
+        font-size: 24px;
+    }
+    
+    #main-icon {
+        width: 110px;
+        padding-top: 30px;
+    }
+    
+    .main-deg {
+        font-size: 30px;
+    }
+    
+    #main-details {
+        padding-top: 35px;
+        font-size: 16px;
+    }
+    
+    #hourly-icon-0, #hourly-icon-1, #hourly-icon-2, #hourly-icon-3, #hourly-icon-4, #hourly-icon-5 {
+        width: 25px;
+    }
+    
+    #daily-icon-0, #daily-icon-1, #daily-icon-2, #daily-icon-3, #daily-icon-4, #daily-icon-5 {
+        width: 25px;
+    }
+    
+    .daily-panel {
+        margin-bottom: 40px;
+    }
 }
 
 
