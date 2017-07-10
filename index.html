@@ -1,124 +1,129 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <title>Weather App</title>
-        
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-        
-        <link rel="stylesheet" type="text/css" href="style.css">
-        
-        <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
-    </head>
-    <body>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-8" id="main-panel">
-                    <div class="row">
-                        <div class="col">
-                                <img src="Icons/sun-1.png" id="main-icon">
-                            <p class="main-deg"><span id="degree">0</span><span class="conv-deg"> &deg;C</span></p>
-                        </div>
-                        <div class="col" id="middle-col">
-                            <label class="switch">
-                                <p>&deg;C &deg;F</p>
-                                <input type="checkbox" class="active" id="degree-cels">
-                                <div class="slider round"></div>
-                            </label>
-                            <p id="location">City, Country</p>
-                            <p id="date">Date</p>
-                            <p id="summary">Weather info</p>
-                        </div>
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Weather App</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8" id="main-panel">
+                <div class="row">
+                    <div class="col">
+                        <img src="Icons/sun-1.png" id="main-icon">
+                        <p class="main-deg"><span id="degree">0</span><span class="conv-deg"> &deg;C</span></p>
+                    </div>
+                    <div class="col" id="middle-col">
+                        <label class="switch">
+                            <p>&deg;C &deg;F</p>
+                            <input type="checkbox" class="active" id="degree-cels">
+                            <div class="slider round"></div>
+                        </label>
+                        <p id="location">City, Country</p>
+                        <p id="date">Date</p>
+                        <p id="summary">Weather info</p>
                     </div>
                 </div>
-                <div class="col-sm-4" id="main-details">
-                    <p><img src="Icons/thermometer-icon.png"> Real Feel: <span class="main-info" id="real-feel">0</span><span class="conv-deg"> &deg;C</span></p>
-                    <p><img src="Icons/humidity.png"> Humidity: <span class="main-info" id="humidity">0</span> %</p>
-                    <p><img src="Icons/rain-drop.png"> Rain Chance: <span class="main-info" id="precip">0</span> %</p>
-                    <p><img src="Icons/wind-icon.png"> Wind Speed: <span class="main-info" id="wind-speed">0</span><span id=units> km/h</span></p>
-                </div>
             </div>
-            <h5>Hourly</h5>
-            <hr>
-            <div class="row hourly-panel">
-                <div class="col-2">
-                    <p class="hourly-degree"><span id="hourly-deg-0">24</span>&deg;</p>
-                    <img src="Icons/sun-1.png" id="hourly-icon-0">
-                    <p class="hours" id="hour-0">15:00</p>
-                </div>
-                <div class="col-2">
-                    <p class="hourly-degree"><span id="hourly-deg-1">24</span>&deg;</p>
-                    <img src="Icons/sun-1.png" id="hourly-icon-1">
-                    <p class="hours" id="hour-1">19:00</p>
-                </div>
-                <div class="col-2">
-                    <p class="hourly-degree"><span id="hourly-deg-2">24</span>&deg;</p>
-                    <img src="Icons/sun-1.png" id="hourly-icon-2">
-                    <p class="hours" id="hour-2">23:00</p>
-                </div>
-                <div class="col-2">
-                    <p class="hourly-degree"><span id="hourly-deg-3">24</span>&deg;</p>
-                    <img src="Icons/sun-1.png" id="hourly-icon-3">
-                    <p class="hours" id="hour-3">03:00</p>
-                </div>
-                <div class="col-2">
-                    <p class="hourly-degree"><span id="hourly-deg-4">24</span>&deg;</p>
-                    <img src="Icons/sun-1.png" id="hourly-icon-4">
-                    <p class="hours" id="hour-4">07:00</p>
-                </div>
-                <div class="col-2">
-                    <p class="hourly-degree"><span id="hourly-deg-5">24</span>&deg;</p>
-                    <img src="Icons/sun-1.png" id="hourly-icon-5">
-                    <p class="hours" id="hour-5">11:00</p>
-                </div>
-            </div>
-            <h5>Daily</h5>
-            <hr>
-            <div class="row daily-panel">
-                <div class="col-2">
-                    <p class="daily-degree"><span id="daily-deg-0">24</span>&deg;</p>
-                    <img src="Icons/sun-1.png" id="daily-icon-0">
-                    <p class="days" id="day-0">Today</p>
-                </div>
-                <div class="col-2">
-                    <p class="daily-degree"><span id="daily-deg-1">24</span>&deg;</p>
-                    <img src="Icons/sun-1.png" id="daily-icon-1">
-                    <p class="days" id="day-1">Wed</p>
-                </div>
-                <div class="col-2">
-                    <p class="daily-degree"><span id="daily-deg-2">24</span>&deg;</p>
-                    <img src="Icons/sun-1.png" id="daily-icon-2">
-                    <p class="days" id="day-2">Thu</p>
-                </div>
-                <div class="col-2">
-                    <p class="daily-degree"><span id="daily-deg-3">24</span>&deg;</p>
-                    <img src="Icons/sun-1.png" id="daily-icon-3">
-                    <p class="days" id="day-3">Fri</p>
-                </div>
-                <div class="col-2">
-                    <p class="daily-degree"><span id="daily-deg-4">24</span>&deg;</p>
-                    <img src="Icons/sun-1.png" id="daily-icon-4">
-                    <p class="days" id="day-4">Sat</p>
-                </div>
-                <div class="col-2">
-                    <p class="daily-degree"><span id="daily-deg-5">24</span>&deg;</p>
-                    <img src="Icons/sun-1.png" id="daily-icon-5">
-                    <p class="days" id="day-5">Sun</p>
-                </div>
+            <div class="col-sm-4" id="main-details">
+                <p><img src="Icons/thermometer-icon.png"> Real Feel: <span class="main-info" id="real-feel">0</span><span class="conv-deg"> &deg;C</span></p>
+                <p><img src="Icons/humidity.png"> Humidity: <span class="main-info" id="humidity">0</span> %</p>
+                <p><img src="Icons/rain-drop.png"> Rain Chance: <span class="main-info" id="precip">0</span> %</p>
+                <p><img src="Icons/wind-icon.png"> Wind Speed: <span class="main-info" id="wind-speed">0</span><span id=units> km/h</span></p>
             </div>
         </div>
-        <footer>
-            <div>Made by <a href="http://vladbogdan.com" target="_blank">Vlad B.</a></div>
-            <div>Icons made by <a href="http://swifticons.com/" target="_blank">Swifticon</a> from <a href="http://www.flaticon.com" target="_blank">Flaticon</a></div>
-            <div id="darksky"><a href="https://darksky.net/poweredby/" target="_blank"><img src="poweredby-oneline.png"></a></div>
-        </footer>
-        
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-        <script src="script.js"></script>
-    </body>
+        <h5>Hourly</h5>
+        <hr>
+        <div class="row hourly-panel">
+            <div class="col-2">
+                <p class="hourly-degree"><span id="hourly-deg-0">24</span>&deg;</p>
+                <img src="Icons/sun-1.png" id="hourly-icon-0">
+                <p class="hours" id="hour-0">15:00</p>
+            </div>
+            <div class="col-2">
+                <p class="hourly-degree"><span id="hourly-deg-1">24</span>&deg;</p>
+                <img src="Icons/sun-1.png" id="hourly-icon-1">
+                <p class="hours" id="hour-1">19:00</p>
+            </div>
+            <div class="col-2">
+                <p class="hourly-degree"><span id="hourly-deg-2">24</span>&deg;</p>
+                <img src="Icons/sun-1.png" id="hourly-icon-2">
+                <p class="hours" id="hour-2">23:00</p>
+            </div>
+            <div class="col-2">
+                <p class="hourly-degree"><span id="hourly-deg-3">24</span>&deg;</p>
+                <img src="Icons/sun-1.png" id="hourly-icon-3">
+                <p class="hours" id="hour-3">03:00</p>
+            </div>
+            <div class="col-2">
+                <p class="hourly-degree"><span id="hourly-deg-4">24</span>&deg;</p>
+                <img src="Icons/sun-1.png" id="hourly-icon-4">
+                <p class="hours" id="hour-4">07:00</p>
+            </div>
+            <div class="col-2">
+                <p class="hourly-degree"><span id="hourly-deg-5">24</span>&deg;</p>
+                <img src="Icons/sun-1.png" id="hourly-icon-5">
+                <p class="hours" id="hour-5">11:00</p>
+            </div>
+        </div>
+        <h5>Daily</h5>
+        <hr>
+        <div class="row daily-panel">
+            <div class="col-2">
+                <p class="daily-degree"><span id="daily-deg-0">24</span>&deg;</p>
+                <img src="Icons/sun-1.png" id="daily-icon-0">
+                <p class="days" id="day-0">Today</p>
+            </div>
+            <div class="col-2">
+                <p class="daily-degree"><span id="daily-deg-1">24</span>&deg;</p>
+                <img src="Icons/sun-1.png" id="daily-icon-1">
+                <p class="days" id="day-1">Wed</p>
+            </div>
+            <div class="col-2">
+                <p class="daily-degree"><span id="daily-deg-2">24</span>&deg;</p>
+                <img src="Icons/sun-1.png" id="daily-icon-2">
+                <p class="days" id="day-2">Thu</p>
+            </div>
+            <div class="col-2">
+                <p class="daily-degree"><span id="daily-deg-3">24</span>&deg;</p>
+                <img src="Icons/sun-1.png" id="daily-icon-3">
+                <p class="days" id="day-3">Fri</p>
+            </div>
+            <div class="col-2">
+                <p class="daily-degree"><span id="daily-deg-4">24</span>&deg;</p>
+                <img src="Icons/sun-1.png" id="daily-icon-4">
+                <p class="days" id="day-4">Sat</p>
+            </div>
+            <div class="col-2">
+                <p class="daily-degree"><span id="daily-deg-5">24</span>&deg;</p>
+                <img src="Icons/sun-1.png" id="daily-icon-5">
+                <p class="days" id="day-5">Sun</p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div>Made by <a href="http://vladbogdan.com" target="_blank">Vlad B.</a></div>
+        <div>Icons made by <a href="http://swifticons.com/" target="_blank">Swifticon</a> from <a href="http://www.flaticon.com" target="_blank">Flaticon</a></div>
+        <div id="darksky">
+            <a href="https://darksky.net/poweredby/" target="_blank"><img src="poweredby-oneline.png"></a>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+
 </html>

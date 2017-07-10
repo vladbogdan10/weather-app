@@ -31,8 +31,12 @@
     font-weight: 500;
 }
 
+
 /* Change Degree Button */
+
+
 /* The switch - the box around the slider */
+
 .switch {
     position: relative;
     display: inline-block;
@@ -40,7 +44,9 @@
     height: 30px;
 }
 
+
 /* C and F inside toggle button */
+
 .switch p {
     text-align: center;
     padding-top: 4px;
@@ -50,11 +56,16 @@
     font-size: 14px;
 }
 
+
 /* Hide default HTML checkbox */
-.switch input {display:none;}
+
+.switch input {
+    display: none;
+}
 
 
 /* The slider */
+
 .slider {
     position: absolute;
     cursor: pointer;
@@ -79,13 +90,15 @@
     transition: .4s;
 }
 
-input:checked + .slider:before {
+input:checked+.slider:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(26px);
 }
 
+
 /* Rounded sliders */
+
 .slider.round {
     border-radius: 30px;
 }
@@ -124,7 +137,12 @@ h3 {
     text-align: center;
 }
 
-#hourly-icon-0, #hourly-icon-1, #hourly-icon-2, #hourly-icon-3, #hourly-icon-4, #hourly-icon-5 {
+#hourly-icon-0,
+#hourly-icon-1,
+#hourly-icon-2,
+#hourly-icon-3,
+#hourly-icon-4,
+#hourly-icon-5 {
     width: 32px;
 }
 
@@ -158,7 +176,12 @@ h3 {
     margin-bottom: 80px;
 }
 
-#daily-icon-0, #daily-icon-1, #daily-icon-2, #daily-icon-3, #daily-icon-4, #daily-icon-5 {
+#daily-icon-0,
+#daily-icon-1,
+#daily-icon-2,
+#daily-icon-3,
+#daily-icon-4,
+#daily-icon-5 {
     width: 32px;
 }
 
@@ -176,7 +199,7 @@ footer a:hover {
     text-decoration: none;
 }
 
-#darksky img{
+#darksky img {
     width: 180px;
 }
 
@@ -184,29 +207,33 @@ footer a:hover {
     #location {
         font-size: 24px;
     }
-    
     #main-icon {
         width: 110px;
         padding-top: 30px;
     }
-    
     .main-deg {
         font-size: 30px;
     }
-    
     #main-details {
         padding-top: 35px;
         font-size: 16px;
     }
-    
-    #hourly-icon-0, #hourly-icon-1, #hourly-icon-2, #hourly-icon-3, #hourly-icon-4, #hourly-icon-5 {
+    #hourly-icon-0,
+    #hourly-icon-1,
+    #hourly-icon-2,
+    #hourly-icon-3,
+    #hourly-icon-4,
+    #hourly-icon-5 {
         width: 25px;
     }
-    
-    #daily-icon-0, #daily-icon-1, #daily-icon-2, #daily-icon-3, #daily-icon-4, #daily-icon-5 {
+    #daily-icon-0,
+    #daily-icon-1,
+    #daily-icon-2,
+    #daily-icon-3,
+    #daily-icon-4,
+    #daily-icon-5 {
         width: 25px;
     }
-    
     .daily-panel {
         margin-bottom: 40px;
     }

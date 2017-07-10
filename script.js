@@ -1,15 +1,15 @@
 // Retrieve location and data from JSON on load.
 $(window).on("load", function () {
     if ("geolocation" in navigator) {
-        navigator.geolocation.getCurrentPosition(function(position) {
+        navigator.geolocation.getCurrentPosition(function (position) {
             var lat = position.coords.latitude;
             var lon = position.coords.longitude;
-            $.getJSON("https://api.darksky.net/forecast/8607de7f2b8c833a13d61d9969bd96ee/"+lat+","+lon+"?callback=?", getForecast);
-            $.getJSON("https://maps.googleapis.com/maps/api/geocode/json?latlng="+lat+","+lon+"&key=AIzaSyCvjcQzheZD4OKM2DPTBOoyNrtkqqp4D1o", function(googleLocation) {
+            $.getJSON("https://api.darksky.net/forecast/8607de7f2b8c833a13d61d9969bd96ee/" + lat + "," + lon + "?callback=?", getForecast);
+            $.getJSON("https://maps.googleapis.com/maps/api/geocode/json?latlng=" + lat + "," + lon + "&key=AIzaSyCvjcQzheZD4OKM2DPTBOoyNrtkqqp4D1o", function (googleLocation) {
                 $("#location").text(googleLocation.results[3].formatted_address);
             });
         });
-        
+
     } else {
         alert("Browser doesn't support geolocation!");
     }
@@ -20,19 +20,19 @@ var hourlyDataJson;
 var hourArr = [];
 var dailyDataJson;
 var iconPath;
-var tempConvert = function(temp) {
-    return Math.round((temp - 32) * 5/9);
+var tempConvert = function (temp) {
+    return Math.round((temp - 32) * 5 / 9);
 }
 
 // Date format. 
 var now = new Date();
-    var minutes = now.getMinutes();
-    if (minutes < 10)
-        minutes = "0" + minutes;
-    var date = now.toDateString() + " " + now.getHours() + ":" + minutes;
+var minutes = now.getMinutes();
+if (minutes < 10)
+    minutes = "0" + minutes;
+var date = now.toDateString() + " " + now.getHours() + ":" + minutes;
 
 // HTML data display from JSON.
-var getForecast = function(data) {
+var getForecast = function (data) {
     console.log(data);
     $("#date").text(date);
     $("#summary").html(data.currently.summary);
@@ -41,11 +41,11 @@ var getForecast = function(data) {
     $("#humidity").html(Math.round(data.currently.humidity * 100));
     $("#precip").html(Math.round(data.daily.data[0].precipProbability * 100));
     $("#wind-speed").html(Math.round(data.currently.windSpeed * 1.6));
- 
-// Toggle button between CELSIUS and FAHRENHEIT.
-    $("#degree-cels").click(function() {
+
+    // Toggle button between CELSIUS and FAHRENHEIT.
+    $("#degree-cels").click(function () {
         $(this).toggleClass("active");
-        if($(this).hasClass("active")) {
+        if ($(this).hasClass("active")) {
             $(this).html("&deg;F");
             $(".conv-deg").html(" &deg;C");
             $("#units").html(" km/h")
@@ -65,19 +65,19 @@ var getForecast = function(data) {
             dailyData();
         }
     });
-    
+
     mainIcon = data.currently.icon;
     hourlyDataJson = data.hourly.data;
     dailyDataJson = data.daily.data;
-    
+
     checkIcon(data.currently.icon);
     $("#main-icon").attr("src", iconPath);
-    
-    
+
+
     for (var i = 0; i < hourlyDataJson.length; i += 4) {
         hourArr.push(hourlyDataJson[i]);
     }
-    
+
     hourlyData();
     dailyData();
 };
@@ -104,11 +104,11 @@ function checkIcon(icon) {
         iconPath = "Icons/partly-cloudy-day.png";
     } else if (icon === "partly-cloudy-night") {
         iconPath = "Icons/partly-cloudy-night.png";
-    }  
+    }
 };
 
 // Display hourly temperature, icon and time dynamically.
-function hourlyData () {
+function hourlyData() {
     for (i = 0; i < hourArr.length; i++) {
         checkIcon(hourArr[i].icon);
         $("#hourly-icon-" + i).attr("src", iconPath);
@@ -118,7 +118,7 @@ function hourlyData () {
             $("#hourly-deg-" + i).html(tempConvert(hourArr[i].temperature));
         } else {
             $("#hourly-deg-" + i).html(Math.round(hourArr[i].temperature));
-        }   
+        }
     }
 };
 
@@ -131,13 +131,13 @@ function convertUnixTime() {
 };
 
 // Display daily temperature, icon and time dynamically.
-function dailyData () {
+function dailyData() {
     for (i = 0; i < dailyDataJson.length; i++) {
         checkIcon(dailyDataJson[i].icon);
         $("#daily-icon-" + i).attr("src", iconPath);
         $("#day-" + i).html(unixTimeToDay());
-            
-        if($("#degree-cels").hasClass("active")) {
+
+        if ($("#degree-cels").hasClass("active")) {
             $("#daily-deg-" + i).html(tempConvert(dailyDataJson[i].temperatureMax));
         } else {
             $("#daily-deg-" + i).html(Math.round(dailyDataJson[i].temperatureMax));
@@ -150,9 +150,3 @@ function unixTimeToDay() {
     var dayName = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
     return dayName[date.getDay()];
 };
-
-
-
-
-
-
