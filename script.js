@@ -22,7 +22,7 @@ var dailyDataJson;
 var iconPath;
 var tempConvert = function (temp) {
     return Math.round((temp - 32) * 5 / 9);
-}
+};
 
 // Date format. 
 var now = new Date();
@@ -48,7 +48,7 @@ var getForecast = function (data) {
         if ($(this).hasClass("active")) {
             $(this).html("&deg;F");
             $(".conv-deg").html(" &deg;C");
-            $("#units").html(" km/h")
+            $("#units").html(" km/h");
             $("#wind-speed").html(Math.round(data.currently.windSpeed * 1.6));
             $("#degree").html(tempConvert(data.currently.temperature));
             $("#real-feel").html(tempConvert(data.currently.apparentTemperature));
@@ -57,7 +57,7 @@ var getForecast = function (data) {
         } else {
             $(this).html("&deg;C");
             $(".conv-deg").html(" &deg;F");
-            $("#units").html(" mph")
+            $("#units").html(" mph");
             $("#wind-speed").html(Math.round(data.currently.windSpeed));
             $("#degree").html(Math.round(data.currently.temperature));
             $("#real-feel").html(Math.round(data.currently.apparentTemperature));
