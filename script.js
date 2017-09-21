@@ -4,10 +4,26 @@ $(window).on("load", function () {
         navigator.geolocation.getCurrentPosition(function (position) {
             var lat = position.coords.latitude;
             var lon = position.coords.longitude;
+            /*
             $.getJSON("https://api.darksky.net/forecast/8607de7f2b8c833a13d61d9969bd96ee/" + lat + "," + lon + "?callback=?", getForecast);
+            */
             $.getJSON("https://maps.googleapis.com/maps/api/geocode/json?latlng=" + lat + "," + lon + "&key=AIzaSyCvjcQzheZD4OKM2DPTBOoyNrtkqqp4D1o", function (googleLocation) {
                 $("#location").text(googleLocation.results[2].formatted_address);
             });
+
+            $.ajax({
+                url: "https://api.darksky.net/forecast/8607de7f2b8c833a13d61d9969bd96ee/" + lat + "," + lon + "?callback=?",
+                dataType: 'jsonp',
+                cache: false,
+                beforeSend: function(){
+                    $('.loader').show();
+                },
+                complete: function(){
+                    $('.loader').hide();
+                },
+                success: getForecast
+            });
+
         });
 
     } else {
@@ -105,7 +121,7 @@ function checkIcon(icon) {
     } else if (icon === "partly-cloudy-night") {
         iconPath = "Icons/partly-cloudy-night.png";
     }
-};
+}
 
 // Display hourly temperature, icon and time dynamically.
 function hourlyData() {
@@ -120,7 +136,7 @@ function hourlyData() {
             $("#hourly-deg-" + i).html(Math.round(hourArr[i].temperature));
         }
     }
-};
+}
 
 function convertUnixTime() {
     var date = new Date(hourArr[i].time * 1000);
@@ -128,7 +144,7 @@ function convertUnixTime() {
     if (hours < 10)
         hours = "0" + hours;
     return hours + ':' + "00";
-};
+}
 
 // Display daily temperature, icon and time dynamically.
 function dailyData() {
@@ -143,10 +159,10 @@ function dailyData() {
             $("#daily-deg-" + i).html(Math.round(dailyDataJson[i].temperatureMax));
         }
     }
-};
+}
 
 function unixTimeToDay() {
     var date = new Date(dailyDataJson[i].time * 1000);
-    var dayName = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+    var dayName = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
     return dayName[date.getDay()];
-};
+}
