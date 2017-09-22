@@ -1,44 +1,38 @@
 // Retrieve location and data from JSON on load.
-$(window).on("load", function () {
-    if ("geolocation" in navigator) {
-        navigator.geolocation.getCurrentPosition(function (position) {
-            var lat = position.coords.latitude;
-            var lon = position.coords.longitude;
-            /*
-            $.getJSON("https://api.darksky.net/forecast/8607de7f2b8c833a13d61d9969bd96ee/" + lat + "," + lon + "?callback=?", getForecast);
-            */
-            $.getJSON("https://maps.googleapis.com/maps/api/geocode/json?latlng=" + lat + "," + lon + "&key=AIzaSyCvjcQzheZD4OKM2DPTBOoyNrtkqqp4D1o", function (googleLocation) {
-                $("#location").text(googleLocation.results[2].formatted_address);
-            });
+$(window).on("load", function() {
+    $.getJSON("http://ip-api.com/json/?callback=?", locationThroughIp);
 
-            $.ajax({
-                url: "https://api.darksky.net/forecast/8607de7f2b8c833a13d61d9969bd96ee/" + lat + "," + lon + "?callback=?",
-                dataType: 'jsonp',
-                cache: false,
-                beforeSend: function(){
-                    $('.loader').show();
-                },
-                complete: function(){
-                    $('.loader').hide();
-                },
-                success: getForecast
-            });
+    function locationThroughIp(IPdata) {
+        var lat = IPdata.lat;
+        var lon = IPdata.lon;
 
+        $("#location").text(IPdata.city + ', ' + IPdata.country);
+
+        $.ajax({
+            url: "https://api.darksky.net/forecast/8607de7f2b8c833a13d61d9969bd96ee/" + lat + "," + lon + "?callback=?",
+            dataType: 'jsonp',
+            cache: false,
+            beforeSend: function() {
+                $('.loader').show();
+            },
+            complete: function() {
+                $('.loader').hide();
+            },
+            success: getForecast,
         });
-
-    } else {
-        alert("Browser doesn't support geolocation!");
     }
 });
+
 
 var mainIcon;
 var hourlyDataJson;
 var hourArr = [];
 var dailyDataJson;
 var iconPath;
-var tempConvert = function (temp) {
+var tempConvert = function(temp) {
     return Math.round((temp - 32) * 5 / 9);
 };
+
 
 // Date format. 
 var now = new Date();
@@ -47,8 +41,9 @@ if (minutes < 10)
     minutes = "0" + minutes;
 var date = now.toDateString() + " " + now.getHours() + ":" + minutes;
 
+
 // HTML data display from JSON.
-var getForecast = function (data) {
+var getForecast = function(data) {
     console.log(data);
     $("#date").text(date);
     $("#summary").html(data.currently.summary);
@@ -59,7 +54,7 @@ var getForecast = function (data) {
     $("#wind-speed").html(Math.round(data.currently.windSpeed * 1.6));
 
     // Toggle button between CELSIUS and FAHRENHEIT.
-    $("#degree-cels").click(function () {
+    $("#degree-cels").click(function() {
         $(this).toggleClass("active");
         if ($(this).hasClass("active")) {
             $(this).html("&deg;F");
@@ -89,7 +84,6 @@ var getForecast = function (data) {
     checkIcon(data.currently.icon);
     $("#main-icon").attr("src", iconPath);
 
-
     for (var i = 0; i < hourlyDataJson.length; i += 4) {
         hourArr.push(hourlyDataJson[i]);
     }
@@ -97,6 +91,7 @@ var getForecast = function (data) {
     hourlyData();
     dailyData();
 };
+
 
 // Check icon status from JSON and append the right icon.
 function checkIcon(icon) {
@@ -123,6 +118,7 @@ function checkIcon(icon) {
     }
 }
 
+
 // Display hourly temperature, icon and time dynamically.
 function hourlyData() {
     for (i = 0; i < hourArr.length; i++) {
@@ -138,6 +134,7 @@ function hourlyData() {
     }
 }
 
+
 function convertUnixTime() {
     var date = new Date(hourArr[i].time * 1000);
     var hours = date.getHours();
@@ -145,6 +142,7 @@ function convertUnixTime() {
         hours = "0" + hours;
     return hours + ':' + "00";
 }
+
 
 // Display daily temperature, icon and time dynamically.
 function dailyData() {
@@ -160,6 +158,7 @@ function dailyData() {
         }
     }
 }
+
 
 function unixTimeToDay() {
     var date = new Date(dailyDataJson[i].time * 1000);
